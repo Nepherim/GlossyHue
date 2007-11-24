@@ -1,0 +1,160 @@
+/*
+ * PmWiki GlossyHue: http://pmwiki.com/Cookbook/GlossyHue and http://skins.solidgone.org/
+ *
+ * Based on Glossy Blue by Nick La http://www.ndesign-studio.com/
+ * Copyright (c) 2007 David Gilbert
+ * Dual licensed under the MIT and GPL licenses:
+ *	 http://www.opensource.org/licenses/mit-license.php
+ *	 http://www.gnu.org/licenses/gpl.html
+ */
+ 
+/* tags
+--------------------------------------------------*/
+body {
+	background: url(images/main-bg.gif);
+	background-color: #ffffff;
+	color: #333333;
+	}
+a {
+	color: #cc6600;
+	}
+a:visited {
+	color: #cc6633;
+	}
+a:hover {
+	color: #ff6600;
+	}
+h1, 
+#sidebar .sidehead, 
+h2, h2 a, h2 a:visited  {
+	color: #59770e;
+	}
+h2, #sidebar .sidehead {
+	border-color: #cccccc;
+	}
+h2 a:hover {
+	color: #ff6600;
+	}
+h3, h4 {
+	color: #758d38;
+	}
+hr {
+	border-color: #59780a;
+	}
+#page {
+	border-color: #d5e6eb;
+	background-color: #ffffff;
+	}
+
+/* headings
+--------------------------------------------------*/
+#header {
+	background: url(images/header-bg.jpg) no-repeat;
+	background-color: #0facea;
+	border-color: #59780a;
+	}
+#headerimg .description, 
+#headerimg .sitetitle, #headerimg .sitetitle a, #headerimg .sitetitle a:visited {
+	color: #c9eefe;
+	}
+#headerimg .description a {
+	color: #fff;
+	}
+#headerimg .sitetitle a:hover, #header .pageheader a:hover {
+	color: #ff6600;
+	}
+	
+/* nav
+--------------------------------------------------*/
+#nav li {
+	background: url(images/nav-button-bg.gif) repeat-x;
+	background-color: #5c8d0c;
+	border-top-color: #e6eed0;
+	border-left-color: #afcd69;
+	border-right-color: #afcd69;
+	}
+#nav .selflink, #nav .selflink:visited, #nav li a:hover {
+	color: #000000;
+	}
+#nav li a {
+	color: #ffffff;
+	}
+
+/* pageactions
+--------------------------------------------------*/
+#pagelead .pagegroup, #pagelead .pageactions li a{
+	color: #048db4;
+	}
+#pagelead .pageactions li a:hover, #pagelead .pagegroup:hover {
+	color: #ff6600;
+	}
+	
+/* edit area
+--------------------------------------------------*/
+#wikiedit input, #wikiedit #text {
+	border-color: #59780a;
+	}
+#wikiedit input[type=submit] {
+	color: #fff;
+	background-color: #5c8d0c;
+	}
+#wikiedit input[type=submit]:hover {
+	color: #000;
+	}
+
+/* sidebar
+--------------------------------------------------*/
+#sidebar {
+	color: #666;
+	}
+#sidebar .sidehead {
+	border-bottom-color: #cfe1ac;
+	}
+#sidebar .sidehead, #sidebar a, #sidebar a:visited {
+	color: #758d38;
+	}
+#sidebar a:hover{
+	color: #ff6600;
+	}
+#sidebar ul li ul li{
+	border-bottom-color: #dceeb7;
+	}
+
+/* search form
+--------------------------------------------------*/
+#searchform #searchfield {
+	border-color: #bed881;
+	background: #fff;
+	color: #000;
+	}
+#searchform #searchbutton {
+	color: #fbfbfb;
+	background: url(images/search-btn-bg.gif) no-repeat;
+	}
+
+/* footer
+--------------------------------------------------*/
+#footer {
+	background: url(images/footer-bg.gif) no-repeat;
+	background-color: #048db4;
+	color: #acd7ee;
+	}
+#footer a, #footer a:visited {
+	color: #fbfbfb;
+	}
+#footer h4 {
+	color: #9cdbfb;
+	}
+#footer .footer-about {
+	background: url(images/footer-right-bg.gif) no-repeat;
+	}
+
+/* credits
+--------------------------------------------------*/
+#credits {
+	color: #7a9299;
+	}
+#credits a, #credit a:visited {
+	color: #048db5;
+	}
+

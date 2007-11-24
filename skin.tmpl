@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>$WikiTitle: {$Group}/{$Titlespaced}</title>
+	<link rel='stylesheet' href='$SkinDirUrl/style.css' type='text/css' />
+	<link rel='stylesheet' href='$SkinDirUrl/color-$SkinColor/color.css' type='text/css' />
+	<!--HTMLHeader-->
+</head>
+
+<body>
+	<div id="page">
+		<div id="header">
+			<!--PageHeaderFmt-->
+			<div id="headerimg">
+				<!--wiki:{$Group}.{$SkinName}-SiteHeader {$SiteGroup}.{$SkinName}-SiteHeader-->
+			</div>
+
+			<div id="nav">
+				<!--wiki:{$SiteGroup}.{$SkinName}-SiteNav-->
+			</div>
+			<!--/PageHeaderFmt-->
+		</div>
+
+		<div id="content">
+			<div id="pagelead">
+				<div class="pageheader">
+					<!--PageTitleFmt-->
+					<a href='{$ScriptUrl}/{$Group}/{$DefaultName}' class='pagegroup'>{$Group}</a>
+					<h1>{$Titlespaced}</h1>
+					<!--/PageTitleFmt-->
+				</div>
+
+				<div class="pageactions">
+					<!--PageActionFmt-->
+					<!--wiki:{$SiteGroup}.PageActions-->
+					<!--/PageActionFmt-->
+				</div>
+			</div>		
+
+			<!--PageText-->
+		</div>
+
+		<div id="sidebar">
+			<!--PageSearchFmt-->
+			<form id="searchform" action='$ScriptUrl' method="post">
+				<input class="hidden" type='hidden' name='n' value='{$FullName}' />
+				<input class="hidden" type='hidden' name='action' value='search' />
+				<input id="searchfield" type='text' name='q' value='' />
+				<input id="searchbutton" type='submit' name="searchbutton" value='Search' />
+			</form>
+			<!--/PageSearchFmt-->
+
+			<!--PageRightFmt-->
+			<!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar-->
+			<!--/PageRightFmt-->
+		</div>
+
+		<div id="footer">
+			<!--PageFooterFmt-->
+			<!--wiki:{$Group}.{$SkinName}-SiteFooter {$SiteGroup}.{$SkinName}-SiteFooter-->
+			<!--/PageFooterFmt-->
+			<hr class="clear" />
+		</div>
+		
+	</div>
+
+	<div id="credits">
+		<div class="alignleft">
+			Design by <a style="color:#7A9299;" href="http://www.ndesign-studio.com/">N.Design Studio</a>, adapted by <a href="http://pmwiki.com/Cookbook/GlossyBlue/">solidGone.org (version {$SkinVersion})</a>
+		</div>
+		<div class="alignright">
+			Powered by <a href="http://pmwiki.com/wiki/PmWiki/ChangeLog">{$Version}</a>
+		</div>
+	</div>
+
+</body>
+</html>

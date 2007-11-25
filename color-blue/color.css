@@ -74,7 +74,7 @@ hr {
 	border-right-color: #afcd69;
 	}
 #nav .selflink, #nav .selflink:visited, #nav li a:hover {
-	color: #000000;
+	color: #ff6600;
 	}
 #nav li a {
 	color: #ffffff;
@@ -99,7 +99,7 @@ hr {
 	background-color: #5c8d0c;
 	}
 #wikiedit input[type=submit]:hover {
-	color: #000;
+	color: #ff6600;
 	}
 
 /* sidebar

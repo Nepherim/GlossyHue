@@ -5,5 +5,5 @@ charset=ISO-8859-1
 csum=
 name=Site.GlossyBlue-SiteHeader
 rev=1
-targets=Main.HomePage,Site.GlossyBlue-SiteFooter
-text=(:if false:)%0a(:div class="sitelogo":)http://localhost:4000/Projects/skins/pmwiki/pub/skins/glossyblue/images/header-icon.gif%0a(:divend:)%0a(:ifend:)%0a%0a(:div class="sitetitle":)[[Main/HomePage | My Site Header]]%0a(:divend:)%0a%0a(:if true:)%0a(:div class="description":)Edit [[{$SiteGroup}.{$SkinName}-SiteFooter | {$SiteGroup}.{$SkinName}-SiteFooter]] to change the header.%0a(:divend:)%0a(:ifend:)%0a
+targets=Main.HomePage,Site.GlossyBlue-SiteHeader
+text=(:if false:)%0a(:div class="sitelogo":)http://localhost:4000/Projects/skins/pmwiki/pub/skins/glossyblue/images/header-icon.gif%0a(:divend:)%0a(:ifend:)%0a%0a(:div class="sitetitle":)[[Main/HomePage | My Site Header]]%0a(:divend:)%0a%0a(:if true:)%0a(:div class="description":)Edit [[{$SiteGroup}.{$SkinName}-SiteHeader | {$SiteGroup}.{$SkinName}-SiteHeader]] to change the header.%0a(:divend:)%0a(:ifend:)%0a

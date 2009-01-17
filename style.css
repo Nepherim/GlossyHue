@@ -371,35 +371,40 @@ ul.links li {
 
 /* blogroll
 --------------------------------------------------*/
-ul.list-blogroll li{
+#sidebar .list-comments li {
+	list-style: none;
+	background: url(images/mini-recent-comments.gif) no-repeat left top;
+	padding-left: 20px !important;
+}
+#sidebar .list-admin li {
+	list-style: none;
+	background: url(images/mini-loginout.gif) no-repeat left center;
+	padding-left: 20px !important;
+}
+#sidebar .list-blogroll li{
 	list-style: none;
 	background: url(images/mini-blogroll.gif) no-repeat !important;
 	padding-left: 16px !important;
 }
-ul.list-cat li, li.widget_categories li{
+#sidebar .list-cat li, widget_categories li{
 	list-style: none;
 	background: url(images/mini-category.gif) no-repeat !important;
 	padding-left: 20px !important;
 }
-ul.list-archives li, li.widget_archives li{
+#sidebar .list-archives li, widget_archives li{
 	list-style: none;
 	background: url(images/mini-monthly-archive.gif) no-repeat !important;
 	padding-left: 20px !important;
 }
-ul.list-page li {
+#sidebar .list-page li {
 	list-style: none;
 	background: url(images/mini-page.gif) no-repeat !important;
 	padding-left: 20px !important;
 }
-ul.list-page li ul li {
+#sidebar .list-page li ul li {
 	list-style: none;
 	background: url(images/mini-page-arrow.gif) no-repeat !important;
 	padding-left: 10px !important;
-}
-ul.list-comments li{
-	list-style: none;
-	background: url(images/mini-recent-comments.gif) no-repeat !important;
-	padding-left: 20px !important;
 }
 
 /* calendar widget

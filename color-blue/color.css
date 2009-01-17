@@ -7,7 +7,7 @@
  *	 http://www.opensource.org/licenses/mit-license.php
  *	 http://www.gnu.org/licenses/gpl.html
  */
- 
+
 /* tags
 --------------------------------------------------*/
 body {
@@ -24,8 +24,15 @@ a:visited {
 a:hover {
 	color: #ff6600;
 	}
-h1, 
-#sidebar .sidehead, 
+#header h1 a, h1 a:visited{
+	color: #c9eefe;
+}
+#header h1 a:hover{
+	color: #ffffff;
+}
+
+#pagelead h1,#pagelead h1 a,
+#sidebar .sidehead,
 h2, h2 a, h2 a:visited  {
 	color: #59770e;
 	}
@@ -46,6 +53,57 @@ hr {
 	background-color: #ffffff;
 	}
 
+/* content
+--------------------------------------------------*/
+nav .page_item a{
+	color: #ffffff;
+	background: #5c8d0c url(images/nav-button-bg.gif) repeat-x;
+	border-top-color: #E6EED0;
+	border-left-color: #AFCD69;
+	border-right-color: #AFCD69;
+}
+.post-month {
+	color: #FFFFFF;
+}
+.post-day, .post-year {
+	color: #999999;
+}
+.navigation a, .navigation a:visited {
+	color: #59770e;
+}
+ul.links.inline.edit-link {
+	color: #CC6633;
+}
+
+/* comments
+--------------------------------------------------*/
+#comments, #respond {
+	border-bottom-color: #CCCCCC;
+}
+.commentlist .alt {
+	background: #f1fedb;
+}
+.commentlist .cite, .commentlist .cite a, .commentlist .cite a:visited {
+	color: #CC6600;
+}
+#commentform label{
+	color: #787878;
+}
+#commentform input{
+	background:#f1fedb;
+	border-color: #bdd77f;
+}
+#commentform textarea{
+	background:#f1fedb;
+	border-color: #bdd77f;
+}
+#commentform textarea:focus, #commentform input[type="text"]:focus {
+	background: #ffffff;
+}
+#commentform #comment-post{
+	color: #FFFFFF;
+}
+
 /* headings
 --------------------------------------------------*/
 #header {
@@ -53,7 +111,7 @@ hr {
 	background-color: #0facea;
 	border-color: #59780a;
 	}
-#headerimg .description, 
+#headerimg .description,
 #headerimg .sitetitle, #headerimg .sitetitle a, #headerimg .sitetitle a:visited {
 	color: #c9eefe;
 	}
@@ -63,7 +121,10 @@ hr {
 #headerimg .sitetitle a:hover, #header .pageheader a:hover {
 	color: #ff6600;
 	}
-	
+.post-date {
+	background: url(images/date-bg.gif) no-repeat;
+}
+
 /* nav
 --------------------------------------------------*/
 #nav li {
@@ -82,13 +143,13 @@ hr {
 
 /* pageactions
 --------------------------------------------------*/
-#pagelead .pagegroup, #pagelead .pageactions li a{
-	color: #048db4;
+#pagelead .pageactions li a{
+	color: #758D38;
 	}
-#pagelead .pageactions li a:hover, #pagelead .pagegroup:hover {
+#pagelead .pagegroup, #pagelead .pageactions li a:hover, #pagelead .pagegroup:hover {
 	color: #ff6600;
 	}
-	
+
 /* edit area
 --------------------------------------------------*/
 #wikiedit input, #wikiedit #text {

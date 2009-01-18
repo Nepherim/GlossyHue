@@ -101,6 +101,7 @@ ul.links.inline.edit-link {
 	background: #ffffff;
 }
 #commentform #comment-post{
+	background: transparent url(images/btn-bg.gif) no-repeat;
 	color: #FFFFFF;
 }
 

@@ -297,10 +297,8 @@ nav .page_item a{
 	padding: 2px;
 }
 #commentform #comment-post{
-	background: url(images/btn-bg.gif) no-repeat;
 	font: bold 12px Arial, Helvetica, sans-serif;
 	border: none;
-	float:right;
 	width: 144px;
 	height: 28px;
 	cursor: pointer;
@@ -640,7 +638,18 @@ a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:
 	padding-bottom: 10px;
 	font-weight: bold;
 	}
-
+.wikimessage {
+	color: red;
+	font-weight: bold;
+	font-size: 110%;
+	}
+#captcha {
+	display: inline;
+	font-weight: bold;
+	}
+#captcha input {
+	width: 50px;
+	}
 /* Hides from IE-mac \*/
 * html .clearfix {height: 1%;}
 

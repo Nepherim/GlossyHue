@@ -234,7 +234,7 @@ nav .page_item a{
 	padding-left: 18px;
 	float: right;
 }
-.navigation {
+.page-navigation {
 	clear: both;
 	padding: 10px 0px;
 }
@@ -597,7 +597,6 @@ hr.clear {
 #wikiedit input, #wikiedit #text {
 	padding:2px;
 	border:1px solid;
-	font-family:'Courier New',Courier,monospace;
 	font-size:1.2em;
 	}
 #wikiedit input {

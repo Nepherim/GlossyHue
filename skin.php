@@ -1,7 +1,6 @@
 <?php if (!defined('PmWiki')) exit();
 /*
  * PmWiki GlossyHue: http://pmwiki.com/Cookbook/GlossyHue and http://skins.solidgone.org/
- * Version 1.0.0  (25-Nov-07)
  *
  * Based on Glossy Blue by Nick La http://www.ndesign-studio.com/
  * Copyright (c) 2007 David Gilbert
@@ -11,7 +10,7 @@
  */
 global $FmtPV;
 $FmtPV['$SkinName'] = '"GlossyHue"';
-$FmtPV['$SkinVersion'] = '"1.0.0"';
+$FmtPV['$SkinVersion'] = '"1.1.0"';
 
 ## Default color scheme
 global $SkinColor;
@@ -22,7 +21,7 @@ global $SkinColor;
 #}
 
 ## Add a custom page storage location
-global $PageStorePath, $WikiLibDirs;
+global $WikiLibDirs;
 $PageStorePath = dirname(__FILE__)."/wikilib.d/{\$FullName}";
 $where = count($WikiLibDirs);
 if ($where>1) $where--;

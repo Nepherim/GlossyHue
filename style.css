@@ -197,7 +197,7 @@ nav .page_item a{
 	display:block;
 	line-height: 20px;
 	padding-top: 2px;
-	margin-left: -3px;
+	letter-spacing: .3em;
 }
 .post-title {
 	float: left;
@@ -223,9 +223,24 @@ nav .page_item a{
 	font-size: 95%;
 }
 .post-calendar {
-	background: url(images/mini-calendar.gif) no-repeat;
+	background: url(images/mini-calendar.gif) no-repeat scroll 0 -2px;
+	padding-left: 20px;
+	float: left;
+	margin-right: 10px;
+	font-size: 95%;
+	color: #999999;
+}
+.post-author {
+	background: url(images/mini-loginout.gif) no-repeat scroll 0 2px;
 	padding-left: 20px;
 	float: right;
+	margin-right: 10px;
+	font-size: 95%;
+	color: #999999;
+}
+.post-count {
+	float: right;
+	margin-right: 10px;
 	font-size: 95%;
 	color: #999999;
 }
@@ -250,7 +265,7 @@ nav .page_item a{
 }
 
 /* comments area */
-#comments, #respond {
+#comments, #respond, #commentblock {
 	border-bottom: 1px dotted;
 	padding: 10px 0 5px 0;
 	clear: both;
@@ -273,30 +288,30 @@ nav .page_item a{
 	display: block;
 	font-size: 87%;
 }
-#commentform {
+#commentform, #commentblock form {
 	margin-top: 10px;
 	font: 110% Arial, Helvetica, sans-serif;
 }
-#commentform p {
+#commentform p, #commentblock form p{
 	padding: 6px 0px;
 	margin: 0px;
 }
-#commentform label{
+#commentform label, #commentblock label {
 	font-size: 87%;
 }
-#commentform input{
+#commentform input, #commentblock input {
 	width: 200px;
 	border: 1px solid;
 	padding: 3px;
 	margin-bottom: 1em;
 }
-#commentform textarea{
+#commentform textarea, #commentblock textarea {
 	width: 478px;
 	height: 115px;
 	border: 1px solid;
 	padding: 2px;
 }
-#commentform #comment-post{
+#commentform #comment-post, #commentblock #comment-post{
 	font: bold 12px Arial, Helvetica, sans-serif;
 	border: none;
 	width: 144px;
@@ -328,6 +343,7 @@ nav .page_item a{
 	}
 #sidebar ul {
 	padding: 0;
+	margin: 0;
 	}
 #sidebar ul li {
 	list-style: none;
@@ -430,6 +446,11 @@ li.widget_calendar td {
 	border: 1px solid;
 	font-size: 95%;
 	vertical-align: middle;
+	}
+#searchform fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
 	}
 #searchform #searchbutton {
 	border: none;
@@ -631,17 +652,24 @@ a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:
 		clear: both;
 	 visibility: hidden;
 	}
-#navigation .createlink { display: none; }
 .readmore {
 	display: block;
+	margin-top: 10px;
 	padding-bottom: 10px;
 	font-weight: bold;
 	}
+#wikiedit form img, #searchform fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	}
+#navigation .createlink { display: none; }
 .wikimessage {
 	color: red;
 	font-weight: bold;
 	font-size: 110%;
 	}
+
 #captcha {
 	display: inline;
 	font-weight: bold;

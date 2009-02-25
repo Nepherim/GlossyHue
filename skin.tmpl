@@ -3,7 +3,7 @@
 <html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>$WikiTitle: {$Group}/{$Titlespaced}</title>
+	<title>$WikiTitle {$Group}/{$Titlespaced}</title>
 	<link rel='stylesheet' href='$SkinDirUrl/style.css' type='text/css' />
 	<link rel='stylesheet' href='$SkinDirUrl/color-$SkinColor/color.css' type='text/css' />
 	<!--HTMLHeader-->
@@ -14,11 +14,11 @@
 		<div id="header">
 			<!--PageHeaderFmt-->
 			<div id="headerimg">
-				<!--wiki:{$Group}.{$SkinName}-SiteHeader {$SiteGroup}.{$SkinName}-SiteHeader-->
+				<!--wiki:{$Group}.SiteHeader {$SiteGroup}.SiteHeader {$SiteGroup}.{$SkinName}-SiteHeader-->
 			</div>
 
 			<div id="nav">
-				<!--wiki:{$Group}.{$SkinName}-SiteNav {$SiteGroup}.{$SkinName}-SiteNav-->
+				<!--wiki:{$Group}.SiteNav {$SiteGroup}.SiteNav {$SiteGroup}.{$SkinName}-SiteNav-->
 			</div>
 			<!--/PageHeaderFmt-->
 		</div>
@@ -45,21 +45,23 @@
 		<div id="sidebar">
 			<!--PageSearchFmt-->
 			<form id="searchform" action='$ScriptUrl' method="post">
+			<fieldset>
 				<input class="hidden" type='hidden' name='n' value='{$FullName}' />
 				<input class="hidden" type='hidden' name='action' value='search' />
 				<input id="searchfield" type='text' name='q' value='' />
-				<input id="searchbutton" type='submit' name="searchbutton" value='Search' />
+				<input id="searchbutton" type='submit' name="searchbutton" value='$[Search]' />
+			</fieldset>
 			</form>
 			<!--/PageSearchFmt-->
 
 			<!--PageRightFmt-->
-			<!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar-->
+			<!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar {$SiteGroup}.{$SkinName}-SideBar-->
 			<!--/PageRightFmt-->
 		</div>
 
 		<div id="footer">
 			<!--PageFooterFmt-->
-			<!--wiki:{$Group}.{$SkinName}-SiteFooter {$SiteGroup}.{$SkinName}-SiteFooter-->
+			<!--wiki:{$Group}.SiteFooter {$SiteGroup}.SiteFooter {$SiteGroup}.{$SkinName}-SiteFooter-->
 			<!--/PageFooterFmt-->
 			<hr class="clear" />
 		</div>
@@ -68,10 +70,10 @@
 
 	<div id="credits">
 		<div class="alignleft">
-			Design by <a style="color:#7A9299;" href="http://www.ndesign-studio.com/">N.Design Studio</a>, adapted by <a href="http://pmwiki.com/Cookbook/GlossyHue/">solidGone.org (version {$SkinVersion})</a>
+			<a style="color:#7A9299;" href="http://www.ndesign-studio.com/resources/wp-themes/glossyblue/" rel="nofollow">GlossyBlue</a> theme adapted by <a href="http://solidgone.org/Skins/">David Gilbert</a>
 		</div>
 		<div class="alignright">
-			Powered by <a href="http://pmwiki.com/wiki/PmWiki/ChangeLog">{$Version}</a>
+			Powered by <a href="http://pmwiki.com/">PmWiki</a>
 		</div>
 	</div>
 

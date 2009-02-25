@@ -1,15 +1,237 @@
-version=pmwiki-2.2.0-beta68 ordered=1 urlencoded=1
+version=pmwiki-2.2.0 ordered=1 urlencoded=1
 agent=Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4
-author=DG3
+author=DaveG
 charset=ISO-8859-1
 csum=
 ctime=1231984413
 host=127.0.0.1
 name=Site.Blogger-SkinTemplate-glossyhue
-rev=131
-targets=Group.Name
-text=!!! #single-entry-view%0a[@%0a(:if false:)[[#single-entry-view]](:ifend:)%0a(::commentcount:(:includesection "#comments-count-pagelist entrygroup='{*$Group}' entryname='{*$Name}' commentstatus=true":)::)%0a(:div9990 class="post" style="margin-top:-10px;":)%0a(:div9991 class="post-cat":)%0a(:if !equal "{*$:entrytags}" "":)* %25list "links inline"%25(:ifend:){*$:entrytags}%0a(:div9991end:)%0a(:div9991 class="post-calendar":){(ftime fmt="%25a, %25Y-%25m-%25d %25H:%25M" when=@{*$:entrydate})}%0a(:div9991end:)%0a(:div9992 class="post-comments":)%0a(:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{*$Group}.{*$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a* %25list "links inline edit-link"%25(:if !equal {*$:entrycomments} "{$Blogger_CommentType_NONE}":)\%0a[[{*$FullName}#commentblock | {$:commentcount} comment(s)]] »%0a(:div9992end:)%0a(:div9991 class="post-content":)%0a{*$:entrybody}%0a(:div9991end:)%0a(:div9990end:)%0a(:div9990 class="clear":)%0a(:div9990end:)%0a(:includesection "#comments-pagelist pagename={*$Name} group={*$Group} entrycomments={*$:entrycomments} divid=commentblock":)%0a[[#single-entry-viewend]]%0a@]%0a(:if auth edit:)%0a(:div9991 class="edit-link":)%25item accesskey="$[ak_edit]"%25[[{$$group}.{$$name}?action=bloggeredit | $[(edit)]]]%25%25%0a(:div9991end:)(:ifend:)%0a%0a!!! #multi-entry-view%0a[@%0a(:if false:)[[#multi-entry-view]](:ifend:)%0a(:template each:)%0a(:div9990 class="post":)%0a(:div9991 class="post-date":)%25post-month%25{(ftime fmt="%25b" when=@{=$:entrydate})}%25%25 %25post-day%25{(ftime fmt="%25d" when=@{=$:entrydate})}%25%25 %25post-year%25{(ftime fmt="%25Y" when=@{=$:entrydate})}%25%25%0a(:div9991end:)%0a(:div9991 class="post-title":)%0a!! [[{=$FullName}|{=$Title}]]%0a(:if !equal "{=$:entrytags}" "":)%0a(:div9992 class="post-cat":)%0a* %25list "links inline"%25{=$:entrytags}%0a(:div9992end:)%0a(:ifend:)%0a(:div9992 class="post-comments":)%0a(:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{=$Group}.{=$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a* %25list "links inline edit-link"%25(:if !equal {*$:entrycomments} "{$Blogger_CommentType_NONE}":)(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":) [[{=$FullName}#commentblock | comment(s) »]](:ifend:)%0a(:div9992end:)%0a(:div9992 class="entry":)%0a(:blogger intro:){=$:entrybody}(:bloggerend:)%0a%25blogger-more%25(:blogger more {=$FullName}:){=$:entrybody}(:bloggerend:)%25%25%0a(:div9992end:)%0a(:div9992 class="clear":)%0a(:div9992end:)%0a(:div9991end:)%0a(:div9990end:)%0a(:template last:)%0a(:includesection "#page-navigation pagecount={$$PageCount}":)%0a[[#multi-entry-viewend]]%0a@]%0a%0a!!! #comment-view%0a[@%0a(:if false:)[[#comment-view]](:ifend:)%0a(:template first:)%0a(:if equal {$$onlyunapproved} "false":)%0a!! $[Comments]%0a(:ifend:)%0a(:template each:)%0a(:if [ equal {$$onlyunapproved} "true" && !equal {(bloggerBasePage {=$FullName})} {(bloggerBasePage {%3c$FullName})} ]:)%0a!!! [[{(bloggerBasePage {=$FullName})} | {{(bloggerBasePage {=$FullName})}$Title}]](:ifend:)%0a# %25apply=list class="commentlist"%25[[#T{=$:commentdate}]]%25cite%25{$Author}%25%25 says: \%0a(:if [ auth admin && equal {=$:commentapproved} false ] :)\%0a[[{*$FullName}?action=bloggerapprove&pn={=$FullName} | $[approve]]] | (:ifend:)\%0a(:if auth admin:)[[{*$FullName}?action=edit | $[edit]]](:ifend:)\%0a  %25commentmetadata%25{(ftime fmt="%25a, %25Y-%25m-%25d %25H:%25M" when=@{=$:commentdate})}%25%25%0a  %25commenttext%25(:blogger multiline:){=$:commenttext}(:bloggerend:)%25%25%0a(:template last:)%0a(:div9990end:)%0a[[#comment-viewend]]%0a@]%0a
-time=1232765309
+rev=205
+targets=
+text=!!! #common-header%0aParameters: entrytags, entryauthor, entrycomments, Name, Group, pmmarkup, title%0a[@%0a(:if false:)[[#common-header]](:ifend:)%0a(:if !equal "{(b_ifnull '{$$title}')}" "":)(:div9981 class="post-title":)%0a!! [[{$$Group}.{$$Name}|{$$title}]]%0a(:if:)%0a(:div9991 class="post-cat":)%0a(:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a(:div9991end:)%0a(:div9991 class="post-comments":)%0a* %25list "links inline edit-link"%25(:if !equal {$$entrycomments} "{$Blogger_CommentType_NONE}":)\%0a[[{$$Group}.{$$Name}#commentblock | (:includesection "#comments-count-pagelist entrygroup='{$$Group}' entryname='{$$Name}' commentstatus=true":) comment(s)]] »%0a(:div9991end:)%0a(:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)\%0a(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)\%0a[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a(:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{$$Group}.{$$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a(:div9991end:)%0a(:if !equal "{(b_ifnull '{$$title}')}" "":)%0a(:div9981end:)%0a(:if:)%0a[[#common-headerend]]%0a@]%0a%0a!!! #single-entry-view%0a[@%0a(:if false:)[[#single-entry-view]](:ifend:)%0a(:div9990 class="post" style="margin-top:-10px;":)%0a(:div9991 class="post-calendar":){(ftime fmt="%25a, %25Y-%25m-%25d %25H:%25M" when=@{*$:entrydate})}%0a(:div9991end:)%0a(:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{*$:entrycomments}' pmmarkup='{*$:pmmarkup}' ":)%0a(:div9991 class="post-content":)%0a{*$:entrybody}%0a(:div9991end:)%0a(:div9990end:)%0a(:div9990 class="clear":)%0a(:div9990end:)%0a(:includesection "#comments-pagelist pagename={*$Name} group={*$Group} entrycomments={*$:entrycomments} divid=commentblock":)%0a[[#single-entry-viewend]]%0a@]%0a%0a!!! #multi-entry-view%0a[@%0a(:if false:)[[#multi-entry-view]](:ifend:)%0a(:template each:)%0a(:div9990 class="post":)%0a(:div9991 class="post-date":)%25post-month%25{(ftime fmt="%25b" when=@{=$:entrydate})}%25%25 %25post-day%25{(ftime fmt="%25d" when=@{=$:entrydate})}%25%25 %25post-year%25{(ftime fmt="%25Y" when=@{=$:entrydate})}%25%25%0a(:div9991end:)%0a(:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{=$:pmmarkup}' title='{=$Title}' ":)%0a(:div9992 class="entry":)%0a(:blogger intro:){=$:entrybody}(:bloggerend:)%0a%25blogger-more%25(:blogger more {=$FullName}:){=$:entrybody}(:bloggerend:)%25%25%0a(:div9992end:)%0a(:div9992 class="clear":)%0a(:div9992end:)%0a(:div9990end:)%0a(:template last:)%0a(:includesection "#comments-count-pagelist entrygroup='{$$group}' entryname='{$$page}' commentstatus=true":) \%0a[[#multi-entry-viewend]]%0a@]%0a%0a!!! #comment-view%0a[@%0a(:if false:)[[#comment-view]](:ifend:)%0a(:template first:)%0a(:if equal {$$onlyunapproved} "false":)%0a!! $[Comments]%0a(:ifend:)%0a(:template each:)%0a(:if [ equal {$$onlyunapproved} "true" && !equal {(b_base {=$FullName})} {(b_base {%3c$FullName})} ]:)%0a!!! [[{(b_base {=$FullName})} | {{(b_base {=$FullName})}$Title}]](:ifend:)%0a# %25apply=list class="commentlist"%25[[#T{=$:commentdate}]]%25cite%25\%0a(:if [ equal "{$Blogger_LinkToCommentSite}" "true" && !equal "{=$:website}" "" ] :)[[{=$:website} | {=$:commentauthor}]](:else:){=$:commentauthor}(:ifend:)%25%25 says: \%0a(:if [ auth admin && equal {=$:commentapproved} false ] :)\%0a[[{*$FullName}?action=bloggerapprove&pn={=$FullName} | $[approve]]] | (:ifend:)\%0a(:if auth admin:)[[{=$FullName}?action=edit | $[edit]]](:ifend:)\\%0a  %25commentmetadata%25{(ftime fmt="%25a, %25Y-%25m-%25d %25H:%25M" when=@{=$:commentdate})}%25%25%0a  %25commenttext%25(:blogger multiline:){=$:commenttext}(:bloggerend:)%25%25%0a(:template last:)%0a(:div9990end:)%0a[[#comment-viewend]]%0a@]%0a
+time=1235533550
+author:1235533550=DaveG
+diff:1235533550:1235359126:=
+host:1235533550=127.0.0.1
+author:1235359126=DaveG
+diff:1235359126:1235359105:=20c20%0a%3c (:if !equal "{(b_ifnull '{$$title}')}" "":)%0a---%0a> (:if !equal '{$$title}' '':)%0a
+host:1235359126=127.0.0.1
+author:1235359105=DaveG
+diff:1235359105:1235359008:=5c5%0a%3c (:if !equal "{(b_ifnull '{$$title}')}" "":)(:div9981 class="post-title":)%0a---%0a> (:if !equal '{$$title}' '':)(:div9981 class="post-title":)%0a
+host:1235359105=127.0.0.1
+author:1235359008=DaveG
+diff:1235359008:1235358995:=22c22%0a%3c (:if:)%0a---%0a> (:if)%0a
+host:1235359008=127.0.0.1
+author:1235358995=DaveG
+diff:1235358995:1235358893:=5c5%0a%3c (:if !equal '{$$title}' '':)(:div9981 class="post-title":)%0a---%0a> (:if !equal '{$$title}' '':)(:div9991 class="post-title":)%0a6a7%0a> (:div9991end:)%0a20,22d20%0a%3c (:if !equal '{$$title}' '':)%0a%3c (:div9981end:)%0a%3c (:if)%0a
+host:1235358995=127.0.0.1
+author:1235358893=DaveG
+diff:1235358893:1235358797:=6c6%0a%3c !! [[{$$Group}.{$$Name}|{$$title}]]%0a---%0a> !! [[{=$FullName}|{$$title}]]%0a
+host:1235358893=127.0.0.1
+author:1235358797=DaveG
+diff:1235358797:1235358772:=48c48%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{=$:pmmarkup}' title='{=$Title}' ":)%0a---%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{=$:pmmarkup}' title='{=$TitleSpaced}' ":)%0a
+host:1235358797=127.0.0.1
+author:1235358772=DaveG
+diff:1235358772:1235358730:=48c48%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{=$:pmmarkup}' title='{=$TitleSpaced}' ":)%0a---%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{=$:pmmarkup}' title='{=TitleSpaced}' ":)%0a
+host:1235358772=127.0.0.1
+author:1235358730=DaveG
+diff:1235358730:1235358570:=2c2%0a%3c Parameters: entrytags, entryauthor, entrycomments, Name, Group, pmmarkup, title%0a---%0a> Parameters: entrytags, entryauthor, entrycomments, Name, Group, pmmarkup%0a5,8d4%0a%3c (:if !equal '{$$title}' '':)(:div9991 class="post-title":)%0a%3c !! [[{=$FullName}|{$$title}]]%0a%3c (:div9991end:)%0a%3c (:if:)%0a48c44,47%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{=$:pmmarkup}' title='{=TitleSpaced}' ":)%0a---%0a> (:div9991 class="post-title":)%0a> !! [[{=$FullName}|{=$Title}]]%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{=$:pmmarkup}' ":)%0a> (:div9991end:)%0a
+host:1235358730=127.0.0.1
+author:1235358570=DaveG
+diff:1235358570:1235358329:=5,6c5%0a%3c (:div9991 class="post-cat":)%0a%3c (:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a---%0a> (:div9991 class="post-cat":)test%0a8,16d6%0a%3c (:div9991 class="post-comments":)%0a%3c * %25list "links inline edit-link"%25(:if !equal {$$entrycomments} "{$Blogger_CommentType_NONE}":)\%0a%3c [[{$$Group}.{$$Name}#commentblock | (:includesection "#comments-count-pagelist entrygroup='{$$Group}' entryname='{$$Name}' commentstatus=true":) comment(s)]] »%0a%3c (:div9991end:)%0a%3c (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)\%0a%3c (:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)\%0a%3c [[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a%3c (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{$$Group}.{$$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a%3c (:div9991end:)%0a44d33%0a%3c (:div9991 class="post-title":)%0a47d35%0a%3c (:div9991end:)%0a
+host:1235358570=127.0.0.1
+author:1235358329=DaveG
+diff:1235358329:1235357849:=33a34%0a> (:div9991 class="post-title":)%0a41a43%0a> (:div9991end:)%0a
+host:1235358329=127.0.0.1
+author:1235357849=DaveG
+diff:1235357849:1235357526:=5c5,6%0a%3c (:div9991 class="post-cat":)test%0a---%0a> (:div9991 class="post-cat":)%0a> test%0a
+host:1235357849=127.0.0.1
+author:1235357526=DaveG
+diff:1235357526:1235357514:=5c5%0a%3c (:div9991 class="post-cat":)%0a---%0a> (:div9991 class="post-cats":)%0a
+host:1235357526=127.0.0.1
+author:1235357514=DaveG
+diff:1235357514:1235357490:=5c5%0a%3c (:div9991 class="post-cats":)%0a---%0a> (:div9991 class="post-cat":)%0a
+host:1235357514=127.0.0.1
+author:1235357490=DaveG
+diff:1235357490:1235357450:=5,7c5,7%0a%3c (:div9991 class="post-cat":)%0a%3c test%0a%3c (:div9991end:)%0a---%0a> (:div style="float:left; display:inline;":)%0a> tester%0a> (:divend:)%0a
+host:1235357490=127.0.0.1
+author:1235357450=DaveG
+diff:1235357450:1235357400:=5,7c5%0a%3c (:div style="float:left; display:inline;":)%0a%3c tester%0a%3c (:divend:)%0a---%0a> %25lfloat%25test%25%25%0a
+host:1235357450=127.0.0.1
+author:1235357400=DaveG
+diff:1235357400:1235357209:=5c5,7%0a%3c %25lfloat%25test%25%25%0a---%0a> (:div9991 class="post-cat":)%0a> (:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a> (:div9991end:)%0a
+host:1235357400=127.0.0.1
+author:1235357209=DaveG
+diff:1235357209:1235356910:=5,6c5%0a%3c (:div9991 class="post-cat":)%0a%3c (:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a---%0a> (:div9991 class="post-cat":)(:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a
+host:1235357209=127.0.0.1
+author:1235356910=DaveG
+diff:1235356910:1235356846:=
+host:1235356910=127.0.0.1
+author:1235356846=DaveG
+diff:1235356846:1235356829:=5c5,6%0a%3c (:div9991 class="post-cat":)(:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a---%0a> (:div9991 class="post-cat":)%0a> (:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a
+host:1235356846=127.0.0.1
+author:1235356829=DaveG
+diff:1235356829:1235356797:=5,7c5%0a%3c (:div9991 class="post-cat":)%0a%3c (:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a%3c (:div9991end:)%0a---%0a> test%0a
+host:1235356829=127.0.0.1
+author:1235356797=DaveG
+diff:1235356797:1235356769:=5c5,7%0a%3c test%0a---%0a> (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)\%0a> (:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)\%0a> [[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a
+host:1235356797=127.0.0.1
+author:1235356769=DaveG
+diff:1235356769:1235356739:=7a8,9%0a> (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{$$Group}.{$$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a> (:div9991end:)%0a
+host:1235356769=127.0.0.1
+author:1235356739=DaveG
+diff:1235356739:1235356647:=4a5,11%0a> (:div9991 class="post-cat":)%0a> (:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a> (:div9991end:)%0a> (:div9991 class="post-comments":)%0a> * %25list "links inline edit-link"%25(:if !equal {$$entrycomments} "{$Blogger_CommentType_NONE}":)\%0a> [[{$$Group}.{$$Name}#commentblock | (:includesection "#comments-count-pagelist entrygroup='{$$Group}' entryname='{$$Name}' commentstatus=true":) comment(s)]] »%0a> (:div9991end:)%0a
+host:1235356739=127.0.0.1
+author:1235356647=DaveG
+diff:1235356647:1235355858:=14c14%0a%3c [[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a---%0a> [[{$Blogger_AuthorGroup}.{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a
+host:1235356647=127.0.0.1
+author:1235355858=DaveG
+diff:1235355858:1235355681:=46c46%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{=$:pmmarkup}' ":)%0a---%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{*$:pmmarkup}' ":)%0a
+host:1235355858=127.0.0.1
+author:1235355681=DaveG
+diff:1235355681:1235355645:=4a5%0a>   "{(b_ifnull '{$$entrytags}')}"%0a
+host:1235355681=127.0.0.1
+author:1235355645=DaveG
+diff:1235355645:1235355617:=5d4%0a%3c   "{(b_ifnull '{$$entrytags}')}"%0a
+host:1235355645=127.0.0.1
+author:1235355617=DaveG
+diff:1235355617:1235355509:=6c6%0a%3c (:if !equal "{(b_ifnull '{$$entrytags}')}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a---%0a> (:if {(b_ifnull "{$$entrytags}")}:)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a
+host:1235355617=127.0.0.1
+author:1235355509=DaveG
+diff:1235355509:1235345391:=6c6%0a%3c (:if {(b_ifnull "{$$entrytags}")}:)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a---%0a> (:if !equal "{$$entrytags}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a
+host:1235355509=127.0.0.1
+author:1235345391=DaveG
+diff:1235345391:1235332908:=14c14%0a%3c [[{$Blogger_AuthorGroup}.{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a---%0a> [[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a
+host:1235345391=127.0.0.1
+author:1235332908=daveg
+diff:1235332908:1235332878:=
+host:1235332908=127.0.0.1
+author:1235332878=daveg
+diff:1235332878:1234974831:=2c2%0a%3c Parameters: entrytags, entryauthor, entrycomments, Name, Group, pmmarkup%0a---%0a> Parameters: entrytags, entryauthor, entrycomments, Name, Group%0a6c6%0a%3c (:if !equal "{$$entrytags}" "":)* %25list "links inline"%25(:blogger tags:){$$pmmarkup}(:bloggerend:)(:ifend:)%0a---%0a> (:if !equal "{$$entrytags}" "":)* %25list "links inline"%25(:ifend:){$$entrytags}%0a26c26%0a%3c (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{*$:entrycomments}' pmmarkup='{*$:pmmarkup}' ":)%0a---%0a> (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{*$:entrycomments}' ":)%0a46c46%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' pmmarkup='{*$:pmmarkup}' ":)%0a---%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' ":)%0a
+host:1235332878=127.0.0.1
+author:1234974831=daveg
+diff:1234974831:1234969985:=56c56%0a%3c (:includesection "#comments-count-pagelist entrygroup='{$$group}' entryname='{$$page}' commentstatus=true":) \%0a---%0a> (:includesection "#page-navigation itemsonpage={$PageCount}":)%0a
+host:1234974831=127.0.0.1
+author:1234969985=daveg
+diff:1234969985:1234961109:=56c56%0a%3c (:includesection "#page-navigation itemsonpage={$PageCount}":)%0a---%0a> (:includesection "#page-navigation pagecount={$$PageCount}":)%0a
+host:1234969985=127.0.0.1
+author:1234961109=daveg
+diff:1234961109:1234755669:=2c2%0a%3c Parameters: entrytags, entryauthor, entrycomments, Name, Group%0a---%0a> Parameters: entrytags, entryauthor, entrycomments, Name, Group, PageCount%0a11a12,14%0a> (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a> (:div9991 class="post-count":){$$PageCount} views%0a> (:div9991end:)(:ifend:)%0a26c29%0a%3c (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{*$:entrycomments}' ":)%0a---%0a> (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{*$:entrycomments}' PageCount='' ":)%0a46c49%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}' ":)%0a---%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}'":)%0a
+host:1234961109=127.0.0.1
+author:1234755669=daveg
+diff:1234755669:1234751670:=2c2%0a%3c Parameters: entrytags, entryauthor, entrycomments, Name, Group, PageCount%0a---%0a> Parameters: entrytags, entryauthor, entrycomments, Name, Group%0a13c13%0a%3c (:div9991 class="post-count":){$$PageCount} views%0a---%0a> (:div9991 class="post-count":){$PageCount} views%0a29c29%0a%3c (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{*$:entrycomments}' PageCount='' ":)%0a---%0a> (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{*$:entrycomments}'":)%0a
+host:1234755669=127.0.0.1
+author:1234751670=daveg
+diff:1234751670:1234750681:=
+host:1234751670=127.0.0.1
+author:1234750681=daveg
+diff:1234750681:1234750636:=12,14d11%0a%3c (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a%3c (:div9991 class="post-count":){$PageCount} views%0a%3c (:div9991end:)(:ifend:)%0a19a17,19%0a> (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a> (:div9991 class="post-count":){$PageCount} views%0a> (:div9991end:)(:ifend:)%0a
+host:1234750681=127.0.0.1
+author:1234750636=daveg
+diff:1234750636:1234750613:=19c19%0a%3c (:div9991end:)(:ifend:)%0a---%0a> (:divend9991:)(:ifend:)%0a
+host:1234750636=127.0.0.1
+author:1234750613=daveg
+diff:1234750613:1234750559:=19c19%0a%3c (:divend9991:)(:ifend:)%0a---%0a> (:divend:)(:ifend:)%0a
+host:1234750613=127.0.0.1
+author:1234750559=daveg
+diff:1234750559:1234750426:=7a8,10%0a> (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a> (:div9991 class="post-count":){$PageCount} views%0a> (:divend:)(:ifend:)%0a17,19d19%0a%3c (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a%3c (:div9991 class="post-count":){$PageCount} views%0a%3c (:divend:)(:ifend:)%0a
+host:1234750559=127.0.0.1
+author:1234750426=daveg
+diff:1234750426:1234750259:=8,10d7%0a%3c (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a%3c (:div9991 class="post-count":){$PageCount} views%0a%3c (:divend:)(:ifend:)%0a19a17,19%0a> (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a> (:div9991 class="post-count":){$PageCount} views%0a> (:divend:)(:ifend:)%0a
+host:1234750426=127.0.0.1
+author:1234750259=daveg
+diff:1234750259:1234750204:=7a8,10%0a> (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a> (:div9991 class="post-count":){$PageCount} views%0a> (:divend:)(:ifend:)%0a17,19d19%0a%3c (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a%3c (:div9991 class="post-count":){$PageCount} views%0a%3c (:divend:)(:ifend:)%0a
+host:1234750259=127.0.0.1
+author:1234750204=daveg
+diff:1234750204:1234750125:=11,14d10%0a%3c (:div9991 class="post-comments":)%0a%3c * %25list "links inline edit-link"%25(:if !equal {$$entrycomments} "{$Blogger_CommentType_NONE}":)\%0a%3c [[{$$Group}.{$$Name}#commentblock | (:includesection "#comments-count-pagelist entrygroup='{$$Group}' entryname='{$$Name}' commentstatus=true":) comment(s)]] »%0a%3c (:div9991end:)%0a18a15,18%0a> (:div9991end:)%0a> (:div9991 class="post-comments":)%0a> * %25list "links inline edit-link"%25(:if !equal {$$entrycomments} "{$Blogger_CommentType_NONE}":)\%0a> [[{$$Group}.{$$Name}#commentblock | (:includesection "#comments-count-pagelist entrygroup='{$$Group}' entryname='{$$Name}' commentstatus=true":) comment(s)]] »%0a
+host:1234750204=127.0.0.1
+author:1234750125=daveg
+diff:1234750125:1234749998:=49c49%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={=$Group} Name={=$Name} entrycomments='{=$:entrycomments}'":)%0a---%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{=$:entrycomments}'":)%0a
+host:1234750125=127.0.0.1
+author:1234749998=daveg
+diff:1234749998:1234749950:=29c29%0a%3c (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{*$:entrycomments}'":)%0a---%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{=$:entrycomments}'":)%0a
+host:1234749998=127.0.0.1
+author:1234749950=daveg
+diff:1234749950:1234749590:=2c2%0a%3c Parameters: entrytags, entryauthor, entrycomments, Name, Group%0a---%0a> Parameters: entrytags, entryauthor, FullName, entrycomments%0a14c14%0a%3c (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{$$Group}.{$$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a---%0a> (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{$$FullName}?action=bloggeredit | $[(edit)]]](:ifend:)%0a18c18%0a%3c [[{$$Group}.{$$Name}#commentblock | (:includesection "#comments-count-pagelist entrygroup='{$$Group}' entryname='{$$Name}' commentstatus=true":) comment(s)]] »%0a---%0a> [[{$$FullName}#commentblock | {$:commentcount} comment(s)]] »%0a25a26%0a> (::commentcount:(:includesection "#comments-count-pagelist entrygroup='{*$Group}' entryname='{*$Name}' commentstatus=true":)::)%0a29c30%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{=$:entrycomments}'":)%0a---%0a> (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' FullName={*$FullName} entrycomments='{*$:entrycomments}'":)%0a43a45%0a> (::commentcount:(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)::)%0a49c51%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' Group={*$Group} Name={*$Name} entrycomments='{=$:entrycomments}'":)%0a---%0a> (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' FullName={=$FullName} entrycomments='{=$:entrycomments}'":)%0a
+host:1234749950=127.0.0.1
+author:1234749590=daveg
+diff:1234749590:1234749307:=45d44%0a%3c (::commentcount:(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)::)%0a51c50,58%0a%3c (:includesection "#common-header entrytags='{=$:entrytags}' entryauthor='{=$:entryauthor}' FullName={=$FullName} entrycomments='{=$:entrycomments}'":)%0a---%0a> (:if !equal "{=$:entrytags}" "":)%0a> (:div9992 class="post-cat":)%0a> * %25list "links inline"%25{=$:entrytags}%0a> (:div9992end:)%0a> (:ifend:)%0a> (:div9992 class="post-comments":)%0a> (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{=$Group}.{=$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a> * %25list "links inline edit-link"%25(:if !equal {*$:entrycomments} "{$Blogger_CommentType_NONE}":)(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":) [[{=$FullName}#commentblock | comment(s) »]](:ifend:)%0a> (:div9992end:)%0a
+host:1234749590=127.0.0.1
+author:1234749307=daveg
+diff:1234749307:1234748575:=1,2c1%0a%3c !!! #common-header%0a%3c Parameters: entrytags, entryauthor, FullName, entrycomments%0a---%0a> !!! #single-entry-view%0a4c3,7%0a%3c (:if false:)[[#common-header]](:ifend:)%0a---%0a> (:if false:)[[#single-entry-view]](:ifend:)%0a> (::commentcount:(:includesection "#comments-count-pagelist entrygroup='{*$Group}' entryname='{*$Name}' commentstatus=true":)::)%0a> (:div9990 class="post" style="margin-top:-10px;":)%0a> (:div9991 class="post-calendar":){(ftime fmt="%25a, %25Y-%25m-%25d %25H:%25M" when=@{*$:entrydate})}%0a> (:div9991end:)%0a6c9%0a%3c (:if !equal "{$$entrytags}" "":)* %25list "links inline"%25(:ifend:){$$entrytags}%0a---%0a> (:if !equal "{*$:entrytags}" "":)* %25list "links inline"%25(:ifend:){*$:entrytags}%0a12,14c15,17%0a%3c (:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)\%0a%3c [[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a%3c (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{$$FullName}?action=bloggeredit | $[(edit)]]](:ifend:)%0a---%0a> (:if exists {$Blogger_AuthorGroup}.{*$:entryauthor}:)\%0a> [[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)(:ifend:)%0a> (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{*$Group}.{*$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a17,18c20,21%0a%3c * %25list "links inline edit-link"%25(:if !equal {$$entrycomments} "{$Blogger_CommentType_NONE}":)\%0a%3c [[{$$FullName}#commentblock | {$:commentcount} comment(s)]] »%0a---%0a> * %25list "links inline edit-link"%25(:if !equal {*$:entrycomments} "{$Blogger_CommentType_NONE}":)\%0a> [[{*$FullName}#commentblock | {$:commentcount} comment(s)]] »%0a20,30d22%0a%3c [[#common-headerend]]%0a%3c @]%0a%3c %0a%3c !!! #single-entry-view%0a%3c [@%0a%3c (:if false:)[[#single-entry-view]](:ifend:)%0a%3c (::commentcount:(:includesection "#comments-count-pagelist entrygroup='{*$Group}' entryname='{*$Name}' commentstatus=true":)::)%0a%3c (:div9990 class="post" style="margin-top:-10px;":)%0a%3c (:div9991 class="post-calendar":){(ftime fmt="%25a, %25Y-%25m-%25d %25H:%25M" when=@{*$:entrydate})}%0a%3c (:div9991end:)%0a%3c (:includesection "#common-header entrytags='{*$:entrytags}' entryauthor='{*$:entryauthor}' FullName={*$FullName} entrycomments='{*$:entrycomments}'":)%0a
+host:1234749307=127.0.0.1
+author:1234748575=daveg
+diff:1234748575:1234748341:=11,14c11,12%0a%3c (:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :)%0a%3c (:div9991 class="post-count":){$PageCount} views%0a%3c (:divend:)(:ifend:)%0a%3c (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)\%0a---%0a> (:div9991 class="post-author":)(:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :){$PageCount} views(:ifend:) \%0a> (:if !equal "{$$entryauthor}" "":)\%0a19c17%0a%3c (:div9991 class="post-comments":)%0a---%0a> (:div9992 class="post-comments":)%0a22c20%0a%3c (:div9991end:)%0a---%0a> (:div9992end:)%0a
+host:1234748575=127.0.0.1
+author:1234748341=daveg
+diff:1234748341:1234748111:=11,12c11%0a%3c (:div9991 class="post-author":)(:if [ !equal "{$PageCount}" "" && ( equal {$Blogger_PublicPageCount} true || auth edit ) ] :){$PageCount} views(:ifend:) \%0a%3c (:if !equal "{$$entryauthor}" "":)\%0a---%0a> (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)\%0a29a29,31%0a> (:if auth edit:)%0a> (:div9991 class="edit-link":)%25item accesskey="$[ak_edit]"%25[[{$$group}.{$$name}?action=bloggeredit | $[(edit)]]]%25%25%0a> (:div9991end:)(:ifend:)%0a
+host:1234748341=127.0.0.1
+author:1234748111=daveg
+diff:1234748111:1234748082:=13c13%0a%3c [[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)(:ifend:)%0a---%0a> [[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)(:ifend:)\%0a
+host:1234748111=127.0.0.1
+author:1234748082=daveg
+diff:1234748082:1234748037:=11c11,12%0a%3c (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)\%0a---%0a> (:div9991 class="post-author":)%0a> (:if !equal "{$$entryauthor}" "":)\%0a13c14%0a%3c [[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)(:ifend:)\%0a---%0a> [[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)(:ifend:)%0a
+host:1234748082=127.0.0.1
+author:1234748037=daveg
+diff:1234748037:1234747911:=11d10%0a%3c (:div9991 class="post-author":)%0a13,14c12%0a%3c (:if exists {$Blogger_AuthorGroup}.{*$:entryauthor}:)\%0a%3c [[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)(:ifend:)%0a---%0a> (:div9991 class="post-author":)(:if exists {$Blogger_AuthorGroup}.{*$:entryauthor}:)[[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)%0a16a15%0a> (:ifend:)\%0a
+host:1234748037=127.0.0.1
+author:1234747911=daveg
+diff:1234747911:1234747818:=13d12%0a%3c (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{*$Group}.{*$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a19a19%0a> (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{*$Group}.{*$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a
+host:1234747911=127.0.0.1
+author:1234747818=daveg
+diff:1234747818:1234747689:=10a11%0a> (:div9992 class="post-comments":)%0a15c16%0a%3c (:div9992 class="post-comments":)%0a---%0a> (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{*$Group}.{*$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a19d19%0a%3c (:if auth edit:)* %25list "links inline edit-link"%25 %25item accesskey="$[ak_edit]"%25[[{*$Group}.{*$Name}?action=bloggeredit | $[(edit)]]](:ifend:)%0a
+host:1234747818=127.0.0.1
+author:1234747689=daveg
+diff:1234747689:1234747417:=7a8,10%0a> (:if !equal "{$$entryauthor}" "":)%0a> (:div9991 class="post-author":)(:if exists {$Blogger_AuthorGroup}.{*$:entryauthor}:)[[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)(:div9991end:)%0a> (:ifend:)%0a12,15d14%0a%3c (:if !equal "{$$entryauthor}" "":)\%0a%3c (:div9991 class="post-author":)(:if exists {$Blogger_AuthorGroup}.{*$:entryauthor}:)[[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)%0a%3c (:div9991end:)%0a%3c (:ifend:)\%0a
+host:1234747689=127.0.0.1
+author:1234747417=daveg
+diff:1234747417:1234747342:=8,9c8%0a%3c (:if !equal "{$$entryauthor}" "":)%0a%3c (:div9991 class="post-author":)(:if exists {$Blogger_AuthorGroup}.{*$:entryauthor}:)[[{$Blogger_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)(:div9991end:)%0a---%0a> (:if !equal "{$$entryauthor}" "":)(:div9991 class="post-author":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:div9991end:)%0a
+host:1234747417=127.0.0.1
+author:1234747342=daveg
+diff:1234747342:1234747329:=9c9%0a%3c (:ifend:)%0a---%0a> (:ifend:)\%0a
+host:1234747342=127.0.0.1
+author:1234747329=daveg
+diff:1234747329:1234747313:=8,9c8%0a%3c (:if !equal "{$$entryauthor}" "":)(:div9991 class="post-author":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:div9991end:)%0a%3c (:ifend:)\%0a---%0a> (:if !equal "{$$entryauthor}" "":)(:div9991 class="post-author":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:div9991end:)(:ifend:)%0a
+host:1234747329=127.0.0.1
+author:1234747313=daveg
+diff:1234747313:1234747000:=8c8,9%0a%3c (:if !equal "{$$entryauthor}" "":)(:div9991 class="post-author":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:div9991end:)(:ifend:)%0a---%0a> (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a> (:div9991end:)%0a
+host:1234747313=127.0.0.1
+author:1234747000=daveg
+diff:1234747000:1234743902:=7,8d6%0a%3c (:div9991end:)%0a%3c (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a
+host:1234747000=127.0.0.1
+author:1234743902=daveg
+diff:1234743902:1234743780:=
+host:1234743902=127.0.0.1
+author:1234743780=daveg
+diff:1234743780:1234743711:=6a7,8%0a> (:div9991end:)%0a> (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)%25rel=nofollow%25[[{$Blogger_AuthorGroup}/{$$entryauthor}]]%25%25(:else:){$$entryauthor}(:ifend:)(:ifend:)%0a
+host:1234743780=127.0.0.1
+author:1234743711=daveg
+diff:1234743711:1234743634:=8c8%0a%3c (:div9991 class="post-author":)(:if !equal "{$$entryauthor}" "":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)%25rel=nofollow%25[[{$Blogger_AuthorGroup}/{$$entryauthor}]]%25%25(:else:){$$entryauthor}(:ifend:)(:ifend:)%0a---%0a> (:div9991 class="post-author:)(:if !equal "{$$entryauthor}" "":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a
+host:1234743711=127.0.0.1
+author:1234743634=daveg
+diff:1234743634:1234743242:=7,8d6%0a%3c (:div9991end:)%0a%3c (:div9991 class="post-author:)(:if !equal "{$$entryauthor}" "":)(:if exists {$Blogger_AuthorGroup}.{$$entryauthor}:)[[{$Blogger_AuthorGroup}/{$$entryauthor}]](:else:){$$entryauthor}(:ifend:)(:ifend:)%0a
+host:1234743634=127.0.0.1
+author:1234743242=daveg
+diff:1234743242:1234742027:=6,7d5%0a%3c (:div9991 class="post-calendar":){(ftime fmt="%25a, %25Y-%25m-%25d %25H:%25M" when=@{*$:entrydate})}%0a%3c (:div9991end:)%0a10a9,10%0a> (:div9991 class="post-calendar":){(ftime fmt="%25a, %25Y-%25m-%25d %25H:%25M" when=@{*$:entrydate})}%0a> (:div9991end:)%0a70,71c70%0a%3c # %25apply=list class="commentlist"%25[[#T{=$:commentdate}]]%25cite%25\%0a%3c (:if [ equal "{$Blogger_LinkToCommentSite}" "true" && !equal "{=$:website}" "" ] :)[[{=$:website} | {=$:commentauthor}]](:else:){=$:commentauthor}(:ifend:)%25%25 says: \%0a---%0a> # %25apply=list class="commentlist"%25[[#T{=$:commentdate}]]%25cite%25(:if [ equal "{$Blogger_LinkToCommentSite}" "true" && !equal "{=$:website}" "" ] :)[[{=$:website} | {=$:commentauthor}]](:else:){=$:commentauthor}(:ifend:)%25%25 says: \%0a
+host:1234743242=127.0.0.1
+author:1234742027=daveg
+diff:1234742027:1234558605:=70c70%0a%3c # %25apply=list class="commentlist"%25[[#T{=$:commentdate}]]%25cite%25(:if [ equal "{$Blogger_LinkToCommentSite}" "true" && !equal "{=$:website}" "" ] :)[[{=$:website} | {=$:commentauthor}]](:else:){=$:commentauthor}(:ifend:)%25%25 says: \%0a---%0a> # %25apply=list class="commentlist"%25[[#T{=$:commentdate}]]%25cite%25{$Author}%25%25 says: \%0a
+host:1234742027=127.0.0.1
+author:1234558605=DG3
+diff:1234558605:1234121051:=73c73%0a%3c (:if auth admin:)[[{=$FullName}?action=edit | $[edit]]](:ifend:)\\%0a---%0a> (:if auth admin:)[[{*$FullName}?action=edit | $[edit]]](:ifend:)\%0a
+host:1234558605=127.0.0.1
+author:1234121051=DG3
+diff:1234121051:1234065568:=
+host:1234121051=127.0.0.1
+author:1234065568=DG3
+diff:1234065568:1234065213:=68,69c68,69%0a%3c (:if [ equal {$$onlyunapproved} "true" && !equal {(b_base {=$FullName})} {(b_base {%3c$FullName})} ]:)%0a%3c !!! [[{(b_base {=$FullName})} | {{(b_base {=$FullName})}$Title}]](:ifend:)%0a---%0a> (:if [ equal {$$onlyunapproved} "true" && !equal {(b_BasePage {=$FullName})} {(b_BasePage {%3c$FullName})} ]:)%0a> !!! [[{(b_BasePage {=$FullName})} | {{(b_BasePage {=$FullName})}$Title}]](:ifend:)%0a
+host:1234065568=127.0.0.1
+author:1234065213=DG3
+diff:1234065213:1234065203:=
+host:1234065213=127.0.0.1
+author:1234065203=DG3
+diff:1234065203:1232765309:=68,69c68,69%0a%3c (:if [ equal {$$onlyunapproved} "true" && !equal {(b_BasePage {=$FullName})} {(b_BasePage {%3c$FullName})} ]:)%0a%3c !!! [[{(b_BasePage {=$FullName})} | {{(b_BasePage {=$FullName})}$Title}]](:ifend:)%0a---%0a> (:if [ equal {$$onlyunapproved} "true" && !equal {(bloggerBasePage {=$FullName})} {(bloggerBasePage {%3c$FullName})} ]:)%0a> !!! [[{(bloggerBasePage {=$FullName})} | {{(bloggerBasePage {=$FullName})}$Title}]](:ifend:)%0a
+host:1234065203=127.0.0.1
 author:1232765309=DG3
 diff:1232765309:1232763483:=
 host:1232765309=127.0.0.1

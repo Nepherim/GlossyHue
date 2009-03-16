@@ -158,6 +158,7 @@ ul.links.inline.edit-link {
 	}
 #wikiedit input[type=submit] {
 	color: #fff;
+	background: url(images/nav-button-bg.gif) repeat-x;
 	background-color: #5c8d0c;
 	}
 #wikiedit input[type=submit]:hover {

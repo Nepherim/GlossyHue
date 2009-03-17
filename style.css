@@ -623,7 +623,7 @@ hr.clear {
 #wikiedit input {
 	margin: 2px 2px;
 	}
-#wikiedit input[type=submit] {
+#wikiedit input[type=submit], #comment-post.inputbutton {
 	margin: 12px 2px;
 	}
 

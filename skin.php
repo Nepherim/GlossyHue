@@ -14,6 +14,8 @@ $FmtPV['$SkinVersion'] = '"1.2.0"';
 
 # Create a nosearch markup, since one doesn't exist
 Markup('nosearch', 'directives',  '/\\(:nosearch:\\)/ei', "SetTmplDisplay('PageSearchFmt',0)");
+$FmtPV['$TabsBar'] = "\$GLOBALS['TmplDisplay']['PageTabsFmt']";
+Markup('notabs', 'directives',  '/\\(:notabs:\\)/ei', "SetTmplDisplay('PageTabsFmt',0)");
 
 # ----------------------------------------
 # - Standard Skin Setup

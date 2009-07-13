@@ -1,6 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html PUBLIC
+ "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<title>$WikiTitle {$Group}/{$Titlespaced}</title>
 	<link rel='stylesheet' href='$SkinDirUrl/style.css' type='text/css' />
@@ -12,13 +13,13 @@
 	<div id="page">
 		<div id="header">
 			<!--PageHeaderFmt-->
-			<div id="headerimg">
-				<!--wiki:{$SiteGroup}.{$SkinName}-SiteHeader {$Group}.SiteHeader {$SiteGroup}.SiteHeader -->
+			<div id="siteheader">
+				<!--wiki:{$Group}.SiteHeader {$SiteGroup}.SiteHeader -->
 			</div>
 
 			<!--PageTabsFmt-->
 			<div id="nav">
-				<!--wiki:{$SiteGroup}.{$SkinName}-SiteNav {$Group}.SiteNav {$SiteGroup}.SiteNav -->
+				<!--wiki:{$Group}.SiteNav {$SiteGroup}.SiteNav -->
 			</div>
 			<!--/PageTabsFmt-->
 			<!--/PageHeaderFmt-->
@@ -56,13 +57,21 @@
 			<!--/PageSearchFmt-->
 
 			<!--PageRightFmt-->
-			<!--wiki:{$SiteGroup}.{$SkinName}-SideBar {$Group}.SideBar {$SiteGroup}.SideBar -->
+			<!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar -->
 			<!--/PageRightFmt-->
 		</div>
 
 		<div id="footer">
 			<!--PageFooterFmt-->
-			<!--wiki:{$SiteGroup}.{$SkinName}-SiteFooter {$Group}.SiteFooter {$SiteGroup}.SiteFooter -->
+				<div class="footer-section">
+					<!--wiki:{$Group}.SiteFooter {$SiteGroup}.SiteFooter -->
+				</div>
+				<div class="footer-section">
+					<!--wiki:{$Group}.SiteFooter2 {$SiteGroup}.SiteFooter2 -->
+				</div>
+				<div class="footer-about">
+					<!--wiki:{$Group}.SiteAbout {$SiteGroup}.SiteAbout -->
+				</div>
 			<!--/PageFooterFmt-->
 			<hr class="clear" />
 		</div>
@@ -71,12 +80,12 @@
 
 	<div id="credits">
 		<div class="alignleft">
-			<a style="color:#7A9299;" href="http://www.ndesign-studio.com/resources/wp-themes/glossyblue/" rel="nofollow">GlossyBlue</a> theme adapted by <a href="http://solidgone.org/Skins/">David Gilbert</a>
+			<a style="color:#7A9299;" href="http://www.ndesign-studio.com/resources/wp-themes/glossyblue/">GlossyBlue</a> theme adapted by <a href="http://solidgone.org/Skins/">David Gilbert</a>
 		</div>
 		<div class="alignright">
 			Powered by <a href="http://pmwiki.com/">PmWiki</a>
 		</div>
 	</div>
-
+<!--HTMLFooter-->
 </body>
 </html>

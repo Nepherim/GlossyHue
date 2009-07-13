@@ -31,17 +31,13 @@ p {
 	padding: 0px 0px 10px;
 	margin: 0px;
 	}
-#header h1 {
-	margin: 2px 0 0 0;
-	padding-bottom: 10px;
-	font: bold 36px/100% "Trebuchet MS", Tahoma, Arial;
-	}
-#header h1 a, h1 a:visited{
-	text-decoration: none;
-}
-#header h1 a:hover{
-	text-decoration: none;
-}
+#header .sitetitle { margin: 2px 0 0 0; padding-bottom: 10px; font: bold 36px/100% "Trebuchet MS", Tahoma, Arial; }
+#header .sitetitle a, h1 a:visited{ text-decoration: none; }
+#header .sitetitle a:hover{ text-decoration: none; }
+#header .sitetitle {float:left}
+#header .sitetitle a{display: block}
+#header .sitetag {float: left; clear: left}
+
 h2, #sidebar .sidehead, #pagelead h1 {
 	margin: 0px 0px 2px;
 	border-bottom: 1px dotted;
@@ -97,27 +93,27 @@ pre {
 	float: left;
 	margin-right: 10px;
 	}
-#headerimg {
+#siteheader {
 	position: relative;
 	padding: 20px 0px 0px 20px;
 	height: 60px;
 	}
-#headerimg .sitetitle {
+#siteheader .sitetitle {
 	margin:0px;
 	font: bold 36px/100% "Trebuchet MS", Tahoma, Arial;
 	}
-#headerimg .sitetitle a, #headerimg .sitetitle a:visited {
+#siteheader .sitetitle a, #siteheader .sitetitle a:visited {
 	text-decoration: none;
 	}
-#headerimg .sitetitle a:hover, #header .pageheader a:hover {
+#siteheader .sitetitle a:hover, #header .pageheader a:hover {
 	text-decoration: none;
 	}
-#headerimg .description {
+#siteheader .sitetag {
 	position: absolute;
 	bottom: 3px;
 	font-size: 14px;
 	}
-#headerimg .vspace {
+#siteheader .vspace {
 	margin: 0;
 	}
 
@@ -468,6 +464,7 @@ li.widget_calendar td {
 	font-size: 95%;
 	line-height: 130%;
 	padding-bottom: 10px;
+	padding-top: 10px;
 	}
 #footer h4 {
 	font: normal 146%/100% "Trebuchet MS", Tahoma, Arial;

@@ -10,7 +10,7 @@
  */
 global $FmtPV;
 $FmtPV['$SkinName'] = '"GlossyHue"';
-$FmtPV['$SkinVersion'] = '"1.2.0"';
+$FmtPV['$SkinVersion'] = '"2.0.0"';
 
 # Create a nosearch markup, since one doesn't exist
 Markup('nosearch', 'directives',  '/\\(:nosearch:\\)/ei', "SetTmplDisplay('PageSearchFmt',0)");
@@ -20,7 +20,21 @@ Markup('notabs', 'directives',  '/\\(:notabs:\\)/ei', "SetTmplDisplay('PageTabsF
 # ----------------------------------------
 # - Standard Skin Setup
 # ----------------------------------------
+global $PageLogoUrl, $PageLogoUrlHeight, $PageLogoUrlWidth, $HTMLStylesFmt;
+if (!empty($PageLogoUrl)) {
+	if (!isset($PageLogoUrlWidth) || !isset($PageLogoUrlHeight)) {
+		$size = getimagesize($PageLogoUrl);
+		SDV($PageLogoUrlWidth, ($size ?$size[0]+15 :0) .'px');
+		SDV($PageLogoUrlHeight, ($size ?$size[1] :0) .'px');
+	}
+	$HTMLStylesFmt['glossyhue'] .=
+		'#siteheader .sitetitle a{height:' .$PageLogoUrlHeight .'; background: url(' .$PageLogoUrl .') left top no-repeat} '.
+		'#siteheader .sitetitle a, #siteheader .sitetag{padding-left: ' .$PageLogoUrlWidth .'} '.
+		'#siteheader .sitetag{margin-top: ' .(35-substr($PageLogoUrlHeight,0,-2)) .'px}';
+}
+
 $FmtPV['$WikiTitle'] = '$GLOBALS["WikiTitle"]';
+$FmtPV['$WikiTag'] = '$GLOBALS["WikiTag"]';
 
 # Define a link stye for new page links
 global $LinkPageCreateFmt;

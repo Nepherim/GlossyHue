@@ -16,13 +16,13 @@
 			<div id="siteheader">
 				<!--wiki:{$Group}.SiteHeader {$SiteGroup}.SiteHeader -->
 			</div>
+			<!--/PageHeaderFmt-->
 
 			<!--PageTabsFmt-->
 			<div id="nav">
 				<!--wiki:{$Group}.SiteNav {$SiteGroup}.SiteNav -->
 			</div>
 			<!--/PageTabsFmt-->
-			<!--/PageHeaderFmt-->
 		</div>
 
 		<div id="content">
@@ -46,7 +46,7 @@
 
 		<div id="sidebar">
 			<!--PageSearchFmt-->
-			<form id="searchform" action='$ScriptUrl' method="post">
+			<form id="searchform" action='$ScriptUrl' method="get">
 			<fieldset>
 				<input class="hidden" type='hidden' name='n' value='{$FullName}' />
 				<input class="hidden" type='hidden' name='action' value='search' />
@@ -80,10 +80,10 @@
 
 	<div id="credits">
 		<div class="alignleft">
-			<a style="color:#7A9299;" href="http://www.ndesign-studio.com/resources/wp-themes/glossyblue/">GlossyBlue</a> theme adapted by <a href="http://solidgone.org/Skins/">David Gilbert</a>
+			<a style="color:#7A9299;" href="http://www.ndesign-studio.com/resources/wp-themes/glossyblue/">GlossyBlue</a> $[theme adapted by] <a href="http://solidgone.org/Skins/">David Gilbert</a>
 		</div>
 		<div class="alignright">
-			Powered by <a href="http://pmwiki.com/">PmWiki</a>
+			$[Powered by] <a href="http://pmwiki.com/">PmWiki</a>
 		</div>
 	</div>
 <!--HTMLFooter-->

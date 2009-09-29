@@ -249,12 +249,12 @@ nav .page_item a{
 	clear: both;
 	padding: 10px 0px;
 }
-.previous-entries a {
+.previous-entries a, .blogit-previous-entries a {
 	float: left;
 	padding-left: 18px;
 	background: url(images/mini-nav-left.gif) no-repeat left center;
 }
-.next-entries a {
+.next-entries a, .blogit-next-entries a {
 	float: right;
 	padding-right: 18px;
 	background: url(images/mini-nav-right.gif) no-repeat right center;
@@ -306,6 +306,7 @@ nav .page_item a{
 	height: 115px;
 	border: 1px solid;
 	padding: 2px;
+	margin-bottom: 15px;
 }
 #commentform #comment-post, #commentblock #comment-post{
 	font: bold 12px Arial, Helvetica, sans-serif;
@@ -621,7 +622,7 @@ hr.clear {
 	margin: 2px 2px;
 	}
 #wikiedit input[type=submit], #comment-post.inputbutton {
-	margin: 12px 2px;
+	margin: 0 2px;
 	}
 
 /* pmwiki
@@ -648,7 +649,8 @@ a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:
 		clear: both;
 	 visibility: hidden;
 	}
-.readmore {
+.blogit-listmore {text-align:right;}
+.blogit-readmore {
 	display: block;
 	margin-top: 10px;
 	padding-bottom: 10px;

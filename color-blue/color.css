@@ -71,7 +71,7 @@ nav .page_item a{
 .navigation a, .navigation a:visited {
 	color: #59770e;
 }
-ul.links.inline.edit-link {
+ul.blogit-meta-data li {
 	color: #CC6633;
 }
 
@@ -80,10 +80,10 @@ ul.links.inline.edit-link {
 #comments, #respond {
 	border-bottom-color: #CCCCCC;
 }
-.commentlist .alt {
+.blogit-comment-list .alt {
 	background: #f1fedb;
 }
-.commentlist .cite, .commentlist .cite a, .commentlist .cite a:visited {
+.blogit-comment-list .cite, .blogit-comment-list .cite a, .blogit-comment-list .cite a:visited {
 	color: #CC6600;
 }
 #commentform label{
@@ -220,4 +220,3 @@ ul.links.inline.edit-link {
 #credits a, #credit a:visited {
 	color: #048db5;
 	}
-

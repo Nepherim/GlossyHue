@@ -144,10 +144,10 @@ ul.blogit-meta-data li {
 
 /* pageactions
 --------------------------------------------------*/
-#pagelead .pageactions li a{
-	color: #758D38;
+.pageactions li a{
+	color: #c9eefe;
 	}
-#pagelead .pagegroup, #pagelead .pageactions li a:hover, #pagelead .pagegroup:hover {
+#pagelead .pagegroup, #pagelead .pagegroup:hover {
 	color: #ff6600;
 	}
 

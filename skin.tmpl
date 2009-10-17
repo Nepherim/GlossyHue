@@ -12,6 +12,12 @@
 <body>
 	<div id="page">
 		<div id="header">
+			<div class="pageactions">
+				<!--PageActionFmt-->
+				<!--wiki:{$Group}.PageActions {$SiteGroup}.PageActions-->
+				<!--/PageActionFmt-->
+			</div>
+
 			<!--PageHeaderFmt-->
 			<div id="siteheader">
 				<!--wiki:{$Group}.SiteHeader {$SiteGroup}.SiteHeader -->
@@ -36,11 +42,6 @@
 					<!--/PageTitleFmt-->
 				</div>
 
-				<div class="pageactions">
-					<!--PageActionFmt-->
-					<!--wiki:{$Group}.PageActions {$SiteGroup}.PageActions-->
-					<!--/PageActionFmt-->
-				</div>
 			</div>
 
 			<!--PageText-->
@@ -85,7 +86,7 @@
 			<a style="color:#7A9299;" href="http://www.ndesign-studio.com/resources/wp-themes/glossyblue/">GlossyBlue</a> $[theme adapted by] <a href="http://solidgone.org/Skins/">David Gilbert</a>
 		</div>
 		<div class="alignright">
-			$[Powered by] <a href="http://pmwiki.com/">PmWiki</a>
+			$[Powered by] <!--function:dg_PoweredBy-->
 		</div>
 	</div>
 <!--HTMLFooter-->

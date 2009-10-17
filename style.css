@@ -94,7 +94,6 @@ pre {
 	margin-right: 10px;
 	}
 #siteheader {
-	position: relative;
 	padding: 20px 0px 0px 20px;
 	height: 60px;
 	}
@@ -109,8 +108,6 @@ pre {
 	text-decoration: none;
 	}
 #siteheader .sitetag {
-	position: absolute;
-	bottom: 3px;
 	font-size: 14px;
 	}
 #siteheader .vspace {
@@ -581,24 +578,22 @@ hr.clear {
 #pagelead .pagegroup {
 	line-height: 1.6em;
 	}
-#pagelead .pageactions {
-	position: absolute;
-	top: 0;
-	right: 0;
+.pageactions {
+	float: right;
 	font-size: .9em;
 	}
-#pagelead .pageactions ul {
+.pageactions ul {
 	margin:0;
 	padding:0;
 	}
-#pagelead .pageactions li {
+.pageactions li {
 	float:left;
 	margin:0;
 	padding:0;
 	list-style-type:none;
 	white-space:nowrap;
 	}
-#pagelead .pageactions li a {
+.pageactions li a {
 	line-height: 1.6em;
 	display:block;
 	padding:0 5px;

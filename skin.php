@@ -11,7 +11,7 @@ global $FmtPV;
 $FmtPV['$SkinName'] = '"GlossyHue"';
 $FmtPV['$SkinVersion'] = '"2.1.1"';
 
-global $PageLogoUrl, $PageLogoUrlHeight, $PageLogoUrlWidth, $HTMLStylesFmt;
+global $PageLogoUrl, $PageLogoUrlHeight, $PageLogoUrlWidth, $HTMLStylesFmt,$SkinColor;
 if (!empty($PageLogoUrl)) {
 	dg_SetLogoHeightWidth(15);
 	$HTMLStylesFmt['glossyhue'] .=

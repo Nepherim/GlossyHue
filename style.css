@@ -654,6 +654,10 @@ a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:
 	float: right;
 	font-size: 95%;
 }
+.blogit-actions span{  /* for published/draft/sticky action lists */
+	float: none;
+	padding-left: 0;
+	}
 .blogit-listmore {text-align:right;}
 .blogit-readmore {
 	display: block;

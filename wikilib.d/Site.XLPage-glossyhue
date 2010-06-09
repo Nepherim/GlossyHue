@@ -8,5 +8,5 @@ host=127.0.0.1
 name=Site.XLPage-glossyhue
 rev=3
 targets=
-text=### GlossyHue Template%0a  'Search' => '',%0a  'theme adapted by' => '',%0a  'Powered by' => '',%0a  'Page last modified on {*$LastModified}' => '',%0a  '%25b' => ''%0a
+text=### GlossyHue Template%0a  'Search' => '',%0a  'theme adapted by' => '',%0a  'Powered by' => '',%0a  'Page last modified on' => '',%0a  '%25b' => ''%0a
 

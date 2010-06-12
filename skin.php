@@ -2,14 +2,15 @@
 /* PmWiki GlossyHue skin
  *
  * Examples at: http://pmwiki.com/Cookbook/GlossyHue and http://solidgone.org/Skins/
- * Copyright (c) 2009 David Gilbert
+ * Copyright (c) 2010 David Gilbert
  * This work is licensed under a Creative Commons Attribution-Share Alike 3.0 United States License.
  * Please retain the links in the footer.
  * http://creativecommons.org/licenses/by-sa/3.0/us/
  */
 global $FmtPV;
 $FmtPV['$SkinName'] = '"GlossyHue"';
-$FmtPV['$SkinVersion'] = '"2.1.1"';
+$FmtPV['$SkinVersion'] = '"2.2.0"';
+$FmtPV['$SkinDate'] = '"20100612"';
 
 global $PageLogoUrl, $PageLogoUrlHeight, $PageLogoUrlWidth, $HTMLStylesFmt,$SkinColor;
 if (!empty($PageLogoUrl)) {
